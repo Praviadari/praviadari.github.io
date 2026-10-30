@@ -9,99 +9,208 @@
 <meta property="og:description" content="Mechanical engineer. Heat recovery equipment, from enquiry to order.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://adaripraveen.com/">
+<meta property="og:image" content="https://adaripraveen.com/photo.jpg">
 <link rel="canonical" href="https://adaripraveen.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132a4c'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial' font-weight='700' font-size='26' fill='%23f39c34' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --bg: #f7f8fa; --card: #ffffff; --ink: #1c2330; --muted: #5b6575;
-    --accent: #1f3a5f; --accent-soft: #e6edf6; --line: #dfe3ea;
+    --navy: #132a4c; --navy-2: #0c1a33; --orange: #f39c34; --orange-ink: #b8600a;
+    --bg: #f5f7fa; --card: #ffffff; --ink: #18202c; --muted: #5a6474; --line: #e0e5ec;
+    --soft: #eaf0f7; --accent: #1f4277;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #11161e; --card: #18202b; --ink: #e6eaf0; --muted: #9aa5b5;
-            --accent: #8fb4e3; --accent-soft: #1f2c3d; --line: #2a3442; }
+    :root { --bg: #0b111b; --card: #131b27; --ink: #e5e9ef; --muted: #98a3b3; --line: #253041;
+            --soft: #1a2535; --accent: #9dbbe6; --orange-ink: #f39c34; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink);
-         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 24px; }
-  header { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-  .mono { width: 76px; height: 76px; border-radius: 50%; background: var(--accent); color: var(--bg);
-          display: grid; place-items: center; font-weight: 700; font-size: 28px; flex: none; }
-  h1 { margin: 0; font-size: 30px; line-height: 1.2; }
-  .role { margin: 4px 0 0; color: var(--muted); }
-  .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
-  .links a { padding: 7px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent);
-             text-decoration: none; font-weight: 600; font-size: 14px; }
-  .links a:hover { text-decoration: underline; }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-            padding: 20px 22px; margin-top: 20px; }
-  h2 { margin: 0 0 10px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-  p { margin: 0 0 10px; }
-  ul { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  .item { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-  .item:first-of-type { margin-top: 0; }
-  .item b { display: block; }
-  .item span { color: var(--muted); font-size: 14px; }
-  .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags span { border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 14px; }
-  footer { color: var(--muted); font-size: 13px; text-align: center; padding: 28px 16px 36px; }
+         font: 16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
   a { color: var(--accent); }
+
+  /* Hero: same look as the LinkedIn / Facebook banner */
+  .hero { background: linear-gradient(100deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle, transparent 7px, rgba(140,170,215,.28) 7.5px, rgba(140,170,215,.28) 8.5px, transparent 9px);
+    background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(100deg, #000 0%, rgba(0,0,0,.6) 35%, transparent 70%);
+            mask-image: linear-gradient(100deg, #000 0%, rgba(0,0,0,.6) 35%, transparent 70%); }
+  .hero::after { content: ""; position: absolute; left: 0; top: 18%; width: 180px; height: 120px; pointer-events: none;
+    background-image: radial-gradient(circle, transparent 7px, rgba(243,156,52,.55) 7.5px, rgba(243,156,52,.55) 8.5px, transparent 9px);
+    background-size: 26px 26px; -webkit-mask-image: linear-gradient(90deg, #000, transparent); mask-image: linear-gradient(90deg, #000, transparent); }
+  .hero-in { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 48px 16px 40px;
+             display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+  .photo { width: 168px; height: 168px; border-radius: 50%; border: 4px solid #fff; display: block;
+           box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  .tag { margin: 0 0 14px; padding-left: 14px; border-left: 4px solid var(--orange);
+         font-size: clamp(24px, 4.2vw, 36px); line-height: 1.2; font-weight: 700; }
+  .tag span { color: var(--orange); display: block; }
+  h1 { margin: 0; font-size: 22px; font-weight: 600; }
+  .role { margin: 2px 0 0; color: #c9d5e6; font-size: 15px; }
+  .products { margin: 12px 0 0; color: #c9d5e6; font-size: 14px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .links a { padding: 8px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;
+             color: #fff; border: 1.5px solid rgba(255,255,255,.35); }
+  .links a.primary { background: var(--orange); border-color: var(--orange); color: #1b1206; }
+  .links a:hover { border-color: #fff; }
+  .links a.primary:hover { background: #ffb04f; }
+
+  main { max-width: 960px; margin: 0 auto; padding: 8px 16px 24px; }
+  section { margin-top: 36px; }
+  h2 { margin: 0 0 14px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange-ink);
+       display: flex; align-items: center; gap: 12px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  p { margin: 0 0 10px; }
+  .lead { font-size: 17px; max-width: 720px; }
+
+  /* Career timeline */
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .timeline li { position: relative; padding: 0 0 22px; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before { content: ""; position: absolute; left: -26px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+                         background: var(--card); border: 3px solid var(--accent); }
+  .timeline li.now::before { background: var(--orange); border-color: var(--orange); box-shadow: 0 0 0 4px rgba(243,156,52,.25); }
+  .row { display: flex; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; }
+  .row b { font-size: 16px; }
+  .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .sub { color: var(--muted); font-size: 14px; display: block; }
+  .timeline p { margin: 4px 0 0; font-size: 15px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .card b { font-size: 16px; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); flex: 1; }
+  .card .meta { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .card a { font-weight: 600; font-size: 14px; text-decoration: none; }
+  .card a:hover { text-decoration: underline; }
+  .badge { display: inline-block; align-self: flex-start; background: var(--soft); color: var(--accent);
+           border-radius: 6px; padding: 1px 8px; font-size: 12px; font-weight: 600; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .list { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 6px 18px; }
+  .list > div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .list > div:last-child { border-bottom: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 14px; }
+
+  .contact { background: var(--navy); color: #fff; border-radius: 16px; padding: 24px; display: flex;
+             justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .contact p { margin: 0; color: #c9d5e6; }
+  .contact b { color: #fff; font-size: 18px; display: block; }
+  .contact a { background: var(--orange); color: #1b1206; padding: 10px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; padding: 24px 16px 36px; }
+
+  @media (max-width: 680px) {
+    .hero-in { grid-template-columns: 1fr; gap: 20px; padding: 32px 16px 28px; }
+    .photo { width: 116px; height: 116px; }
+    .two { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <div class="mono" aria-hidden="true">AP</div>
+<header class="hero">
+  <div class="hero-in">
+    <img class="photo" src="photo.jpg" alt="Adari Praveen" width="168" height="168">
     <div>
+      <p class="tag">Heat recovery equipment, <span>from enquiry to order</span></p>
       <h1>Adari Praveen</h1>
       <p class="role">Mechanical engineer &middot; Sales &amp; Marketing &middot; Hyderabad, India</p>
+      <p class="products">Waste heat recovery boilers &middot; Process gas boilers &middot; Deaerators &middot; Heat exchangers</p>
+      <nav class="links" aria-label="Contact">
+        <a class="primary" href="mailto:hello@adaripraveen.com">Email me</a>
+        <a href="https://www.linkedin.com/in/adari-praveen" rel="me">LinkedIn</a>
+        <a href="https://github.com/Praviadari" rel="me">GitHub</a>
+      </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <nav class="links" aria-label="Contact">
-    <a href="mailto:hello@adaripraveen.com">Email</a>
-    <a href="https://www.linkedin.com/in/adari-praveen" rel="me">LinkedIn</a>
-    <a href="https://github.com/Praviadari" rel="me">GitHub</a>
-    <a href="https://dronesforlife.in">Drones for Life</a>
-  </nav>
-
+<main>
   <section>
     <h2>About</h2>
-    <p>I work on industrial heat recovery equipment, from enquiry to order. After two years coordinating the
+    <p class="lead">I work on industrial heat recovery equipment, from enquiry to order. After two years coordinating the
        execution of pressure-equipment orders, I now handle enquiries and tenders in sales and marketing.</p>
-    <p>I also build small software tools with AI-assisted development (Claude Code) to take repetitive
+    <p class="lead">I also build small software tools with AI-assisted development to take repetitive
        paperwork and tracking off engineers' desks.</p>
   </section>
 
   <section>
-    <h2>Experience</h2>
-    <div class="item">
-      <div><b>Engineer - Sales &amp; Marketing</b><span>Thermal Systems (Hyd) Pvt Ltd, Hyderabad</span></div>
-      <div class="when">Sep 2026 - present</div>
-    </div>
-    <div class="item">
-      <div><b>Project Engineer - Defence &amp; Aerospace</b><span>Thermal Systems (Hyd) Pvt Ltd</span></div>
-      <div class="when">May 2026 - Aug 2026</div>
-    </div>
-    <div class="item">
-      <div><b>Graduate Engineering Trainee</b><span>Thermal Systems (Hyd) Pvt Ltd</span></div>
-      <div class="when">May 2025 - May 2026</div>
-    </div>
-    <div class="item">
-      <div><b>Engineering Apprentice - Contract Management</b><span>Thermal Systems (Hyd) Pvt Ltd</span></div>
-      <div class="when">May 2024 - May 2025</div>
-    </div>
+    <h2>Career</h2>
+    <ol class="timeline">
+      <li class="now">
+        <div class="row"><b>Engineer - Sales &amp; Marketing</b><span class="when">Sep 2026 - present</span></div>
+        <span class="sub">Thermal Systems (Hyd) Pvt Ltd, Hyderabad</span>
+        <p>Enquiry registration and tracking, hand-off of RFQs to the proposals team, tender portals, client visits and presentations.</p>
+      </li>
+      <li>
+        <div class="row"><b>Project Engineer - Defence &amp; Aerospace</b><span class="when">May 2026 - Aug 2026</span></div>
+        <span class="sub">Thermal Systems (Hyd) Pvt Ltd</span>
+        <p>Project coordination in ERP and SAP: procurement follow-up, material status and progress reporting.</p>
+      </li>
+      <li>
+        <div class="row"><b>Graduate Engineering Trainee</b><span class="when">May 2025 - May 2026</span></div>
+        <span class="sub">Thermal Systems (Hyd) Pvt Ltd</span>
+        <p>Order execution: work order release, project schedules, vendor follow-up, despatch and billing milestones.</p>
+      </li>
+      <li>
+        <div class="row"><b>Engineering Apprentice - Contract Management</b><span class="when">May 2024 - May 2025</span></div>
+        <span class="sub">Thermal Systems (Hyd) Pvt Ltd</span>
+      </li>
+    </ol>
   </section>
 
   <section>
-    <h2>What I do</h2>
-    <ul>
-      <li>Enquiry registration and tracking, hand-off of RFQs to the proposals team, tender portals.</li>
-      <li>Order execution: work order release, project schedules, vendor follow-up, despatch and billing milestones.</li>
-      <li>Client visits: presentations, meeting minutes.</li>
-      <li>Software for the desk: an enquiry tracker web app, order-document drafting and project dashboards.</li>
-    </ul>
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">Open source</span>
+        <b>Mridanga Seva</b>
+        <p>Class-management web app for mridanga (khol) kirtan classes, built in TypeScript.</p>
+        <a href="https://github.com/Praviadari/mridanga-seva">View on GitHub &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="badge">2nd prize, Aviskara 2023</span>
+        <b>Drone inspection project</b>
+        <p>Drone-based inspection concept, designed and built during college.</p>
+        <div class="meta"><span>2022 - 2024</span><a href="https://dronesforlife.in">dronesforlife.in &rarr;</a></div>
+      </div>
+      <div class="card">
+        <span class="badge">College</span>
+        <b>Beach-cleaning rover</b>
+        <p>Rover with an excavator arm - Arduino, ultrasonic and IR sensors.</p>
+        <div class="meta"><span>2022</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>Internships</h2>
+      <div class="list">
+        <div><div class="row"><b>Hindustan Shipyard Ltd</b><span class="when">Dec 2023 - Jan 2024</span></div>
+             <span class="sub">Repair &amp; maintenance yard, piping department, Visakhapatnam</span></div>
+        <div><div class="row"><b>RINL - Vizag Steel Plant</b><span class="when">Jul 2023</span></div>
+             <span class="sub">CNC gas cutting machine programming and operation</span></div>
+        <div><div class="row"><b>BHEL - HPVP, Visakhapatnam</b><span class="when">May - Jun 2023</span></div>
+             <span class="sub">Mechanical maintenance</span></div>
+        <div><div class="row"><b>AWS Academy (virtual)</b><span class="when">May - Jul 2023</span></div>
+             <span class="sub">AI-ML virtual internship</span></div>
+      </div>
+    </div>
+    <div>
+      <h2>Education</h2>
+      <div class="list">
+        <div><div class="row"><b>B.Tech, Mechanical Engineering</b><span class="when">2024</span></div>
+             <span class="sub">Gayatri Vidya Parishad College of Engineering, Visakhapatnam &middot; First Class</span></div>
+        <div><div class="row"><b>Sea Cadet Corps, Vizag unit</b><span class="when">2015 - 2022</span></div>
+             <span class="sub">Led a 24-cadet platoon at the corps' Golden Jubilee</span></div>
+        <div><b>Certifications</b>
+             <span class="sub">AWS Academy Cloud Foundations, ML Foundations and Cloud Architecting (2023) &middot;
+               Advances in Welding and Joining Technologies, NPTEL (2022) &middot;
+               APSSDC-Siemens CNC Turning, CNC Milling and Solid Edge</span></div>
+        <div><b>Languages</b><span class="sub">Telugu, English, Hindi</span></div>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -115,56 +224,9 @@
   </section>
 
   <section>
-    <h2>Projects</h2>
-    <div class="item">
-      <div><b>Mridanga Seva</b><span>Class-management web app for kirtan classes (TypeScript, open source)</span></div>
-      <div class="when"><a href="https://github.com/Praviadari">GitHub</a></div>
-    </div>
-    <div class="item">
-      <div><b>Drone inspection project</b><span>Drone-based inspection concept; 2nd prize, Aviskara 2023</span></div>
-      <div class="when">2022 - 2024</div>
-    </div>
-    <div class="item">
-      <div><b>Beach-cleaning rover</b><span>Rover with excavator arm - Arduino, ultrasonic and IR sensors</span></div>
-      <div class="when">2022</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Internships</h2>
-    <div class="item">
-      <div><b>Hindustan Shipyard Ltd, Visakhapatnam</b><span>Repair &amp; maintenance yard, piping department</span></div>
-      <div class="when">Dec 2023 - Jan 2024</div>
-    </div>
-    <div class="item">
-      <div><b>RINL - Vizag Steel Plant</b><span>CNC gas cutting machine programming and operation</span></div>
-      <div class="when">Jul - Aug 2023</div>
-    </div>
-    <div class="item">
-      <div><b>BHEL - HPVP, Visakhapatnam</b><span>Mechanical maintenance</span></div>
-      <div class="when">May - Jun 2023</div>
-    </div>
-    <div class="item">
-      <div><b>AWS Academy (virtual)</b><span>AI-ML internship; Cloud Foundations and ML Foundations certificates</span></div>
-      <div class="when">May - Jun 2023</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="item">
-      <div><b>B.Tech, Mechanical Engineering</b><span>Gayatri Vidya Parishad College of Engineering, Visakhapatnam</span></div>
-      <div class="when">2024</div>
-    </div>
-    <div class="item">
-      <div><b>Certifications</b><span>Advances in Welding and Joining Technologies (NPTEL); CNC Turning Foundation (APSSDC)</span></div>
-    </div>
-    <div class="item">
-      <div><b>Sea Cadet Corps, Vizag unit</b><span>Led a 24-cadet platoon at the corps' Golden Jubilee</span></div>
-      <div class="when">2015 - 2022</div>
-    </div>
-    <div class="item">
-      <div><b>Languages</b><span>Telugu, English, Hindi</span></div>
+    <div class="contact">
+      <div><b>Get in touch</b><p>hello@adaripraveen.com &middot; Hyderabad, India</p></div>
+      <a href="mailto:hello@adaripraveen.com">Email me</a>
     </div>
   </section>
 </main>
